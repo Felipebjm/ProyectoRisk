@@ -1,7 +1,7 @@
-﻿namespace LogicLayer
+﻿namespace CommunicationLayer
 {
     public class Class1
     {
-        //Test
+
     }
 }
