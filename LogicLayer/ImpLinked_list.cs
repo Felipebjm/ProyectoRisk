@@ -24,15 +24,15 @@ namespace LogicLayer
         }
 
         // Clase Lista Enlazada genérica
-        public class LinkedList<T>
+        public class ImpLinkedList<T>
         {
             private Nodo<T> cabeza;
 
-            public LinkedList()
+            public ImpLinkedList()
             {
                 cabeza = null;
             }
-
+           
             // Añadir elemento al final
             public void Agregar(T valor)
             {
