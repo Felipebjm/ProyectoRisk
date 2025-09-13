@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicLayer.LinkedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace LogicLayer
 {
     class Dado
     {
-        public List<int> Valores { get; }
+        public ImpLinkedList<int> Valores { get; }
 
         public Dado(Random random)
         {
@@ -18,14 +19,25 @@ namespace LogicLayer
                 int numero = random.Next(1, 7); // 1 a 6 inclusive
                 valoresUnicos.Add(numero);
             }
-            Valores = new List<int>(valoresUnicos);
+            Valores = new ImpLinkedList<int>();
+            foreach (var numero in valoresUnicos)
+            {
+                Valores.Agregar(numero);
+            }
         }
 
         public int Sumar()
         {
             int suma = 0;
-            foreach (var n in Valores)
-                suma += n;
+            // Recorre la lista enlazada
+            var actual = typeof(ImpLinkedList<int>)
+                .GetField("cabeza", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                .GetValue(Valores) as Nodo<int>;
+            while (actual != null)
+            {
+                suma += actual.Valor;
+                actual = actual.Siguiente;
+            }
             return suma;
         }
     }
@@ -55,16 +67,10 @@ namespace LogicLayer
             var dado2 = new Dado(random);
 
             Console.WriteLine("Números aleatorios diferentes entre 1 y 6 para dado1:");
-            for (int i = 0; i < dado1.Valores.Count; i++)
-            {
-                Console.WriteLine(dado1.Valores[i]);
-            }
+            dado1.Valores.Imprimir();
 
             Console.WriteLine("Números aleatorios diferentes entre 1 y 6 para dado2:");
-            for (int i = 0; i < dado2.Valores.Count; i++)
-            {
-                Console.WriteLine(dado2.Valores[i]);
-            }
+            dado2.Valores.Imprimir();
 
             int sumaDado1 = dado1.Sumar();
             int sumaDado2 = dado2.Sumar();
