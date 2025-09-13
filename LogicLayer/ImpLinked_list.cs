@@ -101,6 +101,17 @@ namespace LogicLayer
                 }
                 Console.WriteLine("null");
             }
+            public int Contar() //Metodo para contar los elementos 
+            {
+                int contador = 0;
+                Nodo<T> actual = cabeza;
+                while (actual != null)
+                {
+                    contador++;
+                    actual = actual.Siguiente;
+                }
+                return contador;
+            }
         }
     }
 

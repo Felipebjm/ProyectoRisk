@@ -54,5 +54,89 @@ namespace LogicLayer
         }
 
         //Metodos
+        public void EscogerNombre(string nuevoNombre)
+        {
+            if (!string.IsNullOrWhiteSpace(nuevoNombre)) //Esto es para evitar que el nombre tengo espacios en blanco o este vacio
+            {
+                Nombre = nuevoNombre.Trim();
+            }
+            else
+            {
+                throw new ArgumentException("El nombre no puede estar vacío.");
+            }
+        }
+        public void AñadirTerritorioConquistado(Territorio territorio)
+        {
+            if (territorio == null)
+                throw new ArgumentNullException(nameof(territorio));
+
+            if (!Territorios.Buscar(territorio)) //Busca el territorio para evitar que este 2 veces
+            {
+                Territorios.Agregar(territorio); // Anadir a la lista enlazada
+
+                territorio.Dueno_territorio = this; // Asignar propietario
+
+                // Para actualizar contadores
+                TerritoriosConquistados++;
+                TropasTotales += territorio.Tropas_territorio;
+            }
+        }
+        public void PerderTerritorio(Territorio territorio)
+        {
+            if (territorio == null)
+                throw new ArgumentNullException(nameof(territorio));
+
+            if (Territorios.Buscar(territorio)) // Verificar que el jugador si controla este territorio
+            {
+                // Quitar de la lista enlazada
+                Territorios.Eliminar(territorio);
+
+                territorio.Dueno_territorio = null;  // Quitar la referencia de dueño
+
+
+               TropasTotales = TropasTotales - territorio.Tropas_territorio; // Ajustar estadssticas de las tropas
+
+            }
+        }
+        public int TerritoriosConq() //Cuenta los territorios  
+        {
+            return Territorios.Contar();  //Llama al metodo contar de la lista enlazada
+        }
+
+        public void Modificar_Tropas(int cantidad) // Metodo para modificar las tropas totales
+        {
+    
+            int nuevoTotal = TropasTotales + cantidad; //Si el jugador pierde tropas la cantidad de entrada es negativa 
+
+            if (nuevoTotal < 0)
+            {
+                throw new InvalidOperationException("El numero de tropas no puede ser negativo");
+            }
+
+            TropasTotales = nuevoTotal;
+        }
+
+        public void Añadir_Continente(Continente continente) //Anade un continente a la lista de continentes controlados
+        {
+            if (continente == null)
+                throw new ArgumentNullException(nameof(continente));
+
+            // Evitar duplicados
+            if (!ContinentesControlados.Buscar(continente)) //Revisa que no este ya en la lista
+            {
+                ContinentesControlados.Agregar(continente);
+            }
+        }
+        public void Perder_Continente(Continente continente) //Elimina un continente de la lista de continentes controlados
+        {
+            if (continente == null)
+                throw new ArgumentNullException(nameof(continente));
+            if (ContinentesControlados.Buscar(continente)) //Revisa que el jugador si controle ese continente
+            {
+                ContinentesControlados.Eliminar(continente);
+            }
+        }
+
+
     }
 }

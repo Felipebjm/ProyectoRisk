@@ -11,7 +11,7 @@ namespace LogicLayer
         public int Id { get; set; } // Id del territorio
         public string Nombre { get; set; }
         public Jugador? Dueno_territorio { get; set; } //Referencia al jugador que lo controla, si no tiene dueno es null
-        public int Tropas { get; set; } //Cantidad de tropas en el territorio
+        public int Tropas_territorio { get; set; } //Cantidad de tropas en el territorio
         public Territorio[] Adyacentes { get; set; } // Array de los territorios adyacentes
         public Territorio[] Rutas_maritimas { get; set; } // Territorios con los que se une por ruta maritima
         public Continente Continente { get; set; } // El continente al que pertenece, refencia al objeto continente
@@ -26,7 +26,7 @@ namespace LogicLayer
             Dueno_territorio = null;
             Cantidad_ady = cantidadAdyacentes; //Para crear el array
             Cantidad_rutasMaritimas = rutasMaritimas; 
-            Tropas = 0;
+            Tropas_territorio = 0;
             Adyacentes = new Territorio[cantidadAdyacentes]; // Sirve para crear el array con la cantidad de adyacentes
             Continente = continente;
         }
