@@ -65,7 +65,7 @@ namespace LogicLayer
                 throw new ArgumentException("El nombre no puede estar vacío.");
             }
         }
-        public void AñadirTerritorioConquistado(Territorio territorio)
+        public void Anadir_Territorio_Conquistado(Territorio territorio)
         {
             if (territorio == null)
                 throw new ArgumentNullException(nameof(territorio));
@@ -116,7 +116,7 @@ namespace LogicLayer
             TropasTotales = nuevoTotal;
         }
 
-        public void Añadir_Continente(Continente continente) //Anade un continente a la lista de continentes controlados
+        public void Anadir_Continente(Continente continente) //Anade un continente a la lista de continentes controlados
         {
             if (continente == null)
                 throw new ArgumentNullException(nameof(continente));
@@ -134,6 +134,16 @@ namespace LogicLayer
             if (ContinentesControlados.Buscar(continente)) //Revisa que el jugador si controle ese continente
             {
                 ContinentesControlados.Eliminar(continente);
+            }
+        }
+        public void ObtenerBonusContinente(List<Continente> continentes)
+        {
+            foreach (var continente in continentes)
+            {
+                if (continente.ControlTotal(this))
+                {
+                    TropasDisponibles += continente.BonusRefuerzo;
+                }
             }
         }
 
