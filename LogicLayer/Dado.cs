@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogicLayer
 {
-    class Dado
+    public class Dado
     {
         public ImpLinkedList<int> Valores { get; }
 

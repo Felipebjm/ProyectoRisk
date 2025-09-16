@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicLayer
 {
-    internal class Combate
+    public class Combate
     {
     }
 }
