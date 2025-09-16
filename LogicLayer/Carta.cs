@@ -12,7 +12,7 @@ namespace LogicLayer
         Caballeria,//1
         Artilleria //2
     }
-    public class Cartas
+    public class Carta
     {
         public int Id { get; set; } // Identificador  de la carta 
 
@@ -23,6 +23,24 @@ namespace LogicLayer
 
         // Jugador que actualmente posee la carta (puede ser null si está en el mazo)
         public Jugador? Propietario { get; set; }
+
+        public Carta(int id, TipoCarta tipo) // Constructor
+        {
+            Id = id;
+            Tipo = tipo;
+            Usada = false;       // siempre empieza como no usada
+            Propietario = null;  // al inicio no tiene dueño
+        }
+
+        public void AsignarDuenoCarta(Jugador jugador)
+        {
+            Propietario = jugador;
+            jugador.AgregarCarta(this); // sincroniza con la lista del jugador
+        }
+        public void LiberarDuenoCarta()
+        {
+            Propietario = null;
+        }
 
     }
 }

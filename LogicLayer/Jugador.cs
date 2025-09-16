@@ -17,7 +17,7 @@ namespace LogicLayer
 
         public ImpLinkedList<Territorio> Territorios { get; set; } // Territorios controlados por el jugador
         public int TropasDisponibles { get; set; } 
-        public List<Cartas> Cartas { get; set; } // Cartas que tiene del jugador    //### Hay que crear la clase cartas
+        public ImpLinkedList<Carta> Cartas { get; set; } // Cartas que tiene del jugador    //### Hay que crear la clase cartas
         public ImpLinkedList<Continente> ContinentesControlados { get; set; } //Los continentes que tiene el jugador
         public bool Turno { get; set; } //Indica si es el turno del jugador
         public int TerritoriosConquistados { get; set; }
@@ -38,7 +38,7 @@ namespace LogicLayer
 
             // Inicializar colecciones vacías
             Territorios = new ImpLinkedList<Territorio>();
-            Cartas = new List<Cartas>(); //### Hay que crear la clase cartas
+            Cartas = new ImpLinkedList<Carta>(); //### Hay que crear la clase cartas
             ContinentesControlados = new ImpLinkedList<Continente>();
 
             // Valores iniciales
@@ -146,6 +146,19 @@ namespace LogicLayer
                 }
             }
         }
+        public void AgregarCarta(Carta carta)
+        {
+            Cartas.Agregar(carta);
+            carta.AsignarDuenoCarta(this);
+        }
+
+        // Método simple para eliminar una carta
+        public void EliminarCarta(Carta carta)
+        {
+            Cartas.Eliminar(carta);
+            carta.LiberarDuenoCarta();
+        }
+
 
 
     }
