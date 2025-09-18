@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\onedrive\\documentos\\tec\\2s 2025\\datos 1\\proyectos\\crazyrisk\\proyectocrazyrisk\\logiclayer\\territorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|solutionrelative:logiclayer\\territorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\onedrive\\documentos\\tec\\2s 2025\\datos 1\\proyectos\\crazyrisk\\proyectocrazyrisk\\logiclayer\\carta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|solutionrelative:logiclayer\\carta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\onedrive\\documentos\\tec\\2s 2025\\datos 1\\proyectos\\crazyrisk\\proyectocrazyrisk\\logiclayer\\combate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|solutionrelative:logiclayer\\combate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\onedrive\\documentos\\tec\\2s 2025\\datos 1\\proyectos\\crazyrisk\\proyectocrazyrisk\\logiclayer\\territorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|solutionrelative:logiclayer\\territorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\onedrive\\documentos\\tec\\2s 2025\\datos 1\\proyectos\\crazyrisk\\proyectocrazyrisk\\logiclayer\\implinked_list.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Carta.cs",
               "DocumentMoniker": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\Carta.cs",
               "RelativeDocumentMoniker": "LogicLayer\\Carta.cs",
@@ -55,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Combate.cs",
               "DocumentMoniker": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\Combate.cs",
               "RelativeDocumentMoniker": "LogicLayer\\Combate.cs",
@@ -79,20 +79,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Territorio.cs",
               "DocumentMoniker": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\Territorio.cs",
               "RelativeDocumentMoniker": "LogicLayer\\Territorio.cs",
               "ToolTip": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\Territorio.cs",
               "RelativeToolTip": "LogicLayer\\Territorio.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAA7wFUAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAswFUAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-06T02:47:52.328Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-06T02:47:52.328Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Jugador.cs",
               "DocumentMoniker": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\Jugador.cs",
               "RelativeDocumentMoniker": "LogicLayer\\Jugador.cs",
@@ -100,7 +99,8 @@
               "RelativeToolTip": "LogicLayer\\Jugador.cs",
               "ViewState": "AgIAAIIAAAAAAAAAAAAgwJwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T20:33:57.025Z"
+              "WhenOpened": "2025-09-05T20:33:57.025Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
