@@ -39,10 +39,10 @@ namespace LogicLayer
                 }
             }
 
-            throw new InvalidOperationException($"El array ya no tiene espacio;(((( ");  // Si no encontro espacio lanza excepción   
+            throw new InvalidOperationException($"El array ya no tiene espacio ;( ");  // Si no encontro espacio lanza excepcion   
         }
 
-        public void EliminarTerritorio(Territorio territorio)
+        public void EliminarTerritorio(Territorio territorio) // Elimina un territorio del array de territorios del continente
         {
             if (territorio == null)
                 throw new ArgumentNullException(nameof(territorio));
@@ -80,9 +80,9 @@ namespace LogicLayer
             Dueno_Continente = nuevoDueno;
 
         }
-        public bool ControlTotal(Jugador jugador)
+        public bool ControlTotal(Jugador jugador) //Verifica si un jugador controla todos los territorios del continente
         {
-            return Territorios.All(t => t.Dueno_territorio == jugador);
+            return Territorios.All(t => t.Dueno_territorio == jugador); // Retorna true si todos los territorios son del jugador
         }
     }
 }

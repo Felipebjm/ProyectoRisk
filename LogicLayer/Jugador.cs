@@ -17,7 +17,7 @@ namespace LogicLayer
 
         public ImpLinkedList<Territorio> Territorios { get; set; } // Territorios controlados por el jugador
         public int TropasDisponibles { get; set; } 
-        public ImpLinkedList<Carta> Cartas { get; set; } // Cartas que tiene del jugador    //### Hay que crear la clase cartas
+        public ImpLinkedList<Carta> Cartas { get; set; } // Cartas que tiene del jugador   
         public ImpLinkedList<Continente> ContinentesControlados { get; set; } //Los continentes que tiene el jugador
         public bool Turno { get; set; } //Indica si es el turno del jugador
         public int TerritoriosConquistados { get; set; }
@@ -74,7 +74,7 @@ namespace LogicLayer
             {
                 Territorios.Agregar(territorio); // Anadir a la lista enlazada
 
-                territorio.Dueno_territorio = this; // Asignar propietario
+                //territorio.Dueno_territorio = this; // Asignar propietario
 
                 // Para actualizar contadores
                 TerritoriosConquistados++;
@@ -85,13 +85,14 @@ namespace LogicLayer
         {
             if (territorio == null)
                 throw new ArgumentNullException(nameof(territorio));
+            
 
             if (Territorios.Buscar(territorio)) // Verificar que el jugador si controla este territorio
             {
                 // Quitar de la lista enlazada
                 Territorios.Eliminar(territorio);
 
-                territorio.Dueno_territorio = null;  // Quitar la referencia de dueño
+                //territorio.Dueno_territorio = null;  // Quitar la referencia de dueño
 
 
                TropasTotales = TropasTotales - territorio.Tropas_territorio; // Ajustar estadssticas de las tropas

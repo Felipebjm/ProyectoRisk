@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace LogicLayer
 {
     using System;
+    using System.Collections;
 
     namespace LinkedList
     {
-        // Clase Nodo genérico
         public class Nodo<T>
         {
             public T Valor { get; set; }
@@ -23,16 +23,20 @@ namespace LogicLayer
             }
         }
 
-        // Clase Lista Enlazada genérica
-        public class ImpLinkedList<T>
+        public class ImpLinkedList<T> : IEnumerable<T>
         {
             private Nodo<T> cabeza;
+            private int _count; // contador O(1)
 
             public ImpLinkedList()
             {
                 cabeza = null;
+                _count = 0;
             }
-           
+
+            // Propiedad Count O(1)
+            public int Count => _count;
+
             // Añadir elemento al final
             public void Agregar(T valor)
             {
@@ -51,9 +55,11 @@ namespace LogicLayer
                     }
                     actual.Siguiente = nuevo;
                 }
+
+                _count++;
             }
 
-            // Eliminar un elemento
+            // Eliminar un elemento (solo primera ocurrencia)
             public void Eliminar(T valor)
             {
                 if (cabeza == null) return;
@@ -61,6 +67,7 @@ namespace LogicLayer
                 if (cabeza.Valor.Equals(valor))
                 {
                     cabeza = cabeza.Siguiente;
+                    _count--;
                     return;
                 }
 
@@ -73,6 +80,7 @@ namespace LogicLayer
                 if (actual.Siguiente != null)
                 {
                     actual.Siguiente = actual.Siguiente.Siguiente;
+                    _count--;
                 }
             }
 
@@ -90,7 +98,7 @@ namespace LogicLayer
                 return false;
             }
 
-            // Mostrar la lista
+            // Imprimir (útil para debugging)
             public void Imprimir()
             {
                 Nodo<T> actual = cabeza;
@@ -101,17 +109,22 @@ namespace LogicLayer
                 }
                 Console.WriteLine("null");
             }
-            public int Contar() //Metodo para contar los elementos 
+
+            // Método de conteo legacy (opcional). Ahora Count es O(1)
+            public int Contar() => Count;
+
+            // Implementación de IEnumerable<T> para soportar foreach y LINQ
+            public IEnumerator<T> GetEnumerator()
             {
-                int contador = 0;
                 Nodo<T> actual = cabeza;
                 while (actual != null)
                 {
-                    contador++;
+                    yield return actual.Valor;
                     actual = actual.Siguiente;
                 }
-                return contador;
             }
+
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         }
     }
 
