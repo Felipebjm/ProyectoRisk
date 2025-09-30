@@ -13,9 +13,7 @@ C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\Proye
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.pdb
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.genruntimeconfig.cache
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\obj\Debug\net8.0\ref\PruebaConsola.dll
-C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\bin\Debug\net8.0\CommunicationLayer.dll
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\bin\Debug\net8.0\LogicLayer.dll
-C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\bin\Debug\net8.0\CommunicationLayer.pdb
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\bin\Debug\net8.0\LogicLayer.pdb
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.csproj.AssemblyReference.cache
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\obj\Debug\net8.0\PruebaCo.B0BA1850.Up2Date

@@ -79,5 +79,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogicLayer\LogicLayer.csproj">
+      <Project>{6369e3a2-8f66-4f55-a26b-4d31a9213a95}</Project>
+      <Name>LogicLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PruebaConsola\PruebaConsola.csproj">
+      <Project>{8468722b-179a-4b91-9d9d-8a7a7a458624}</Project>
+      <Name>PruebaConsola</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

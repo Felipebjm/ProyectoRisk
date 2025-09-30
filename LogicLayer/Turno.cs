@@ -17,219 +17,236 @@ namespace LogicLayer
 
     public class Turno
     {
+        // jugador que tiene este turno
         public Jugador Jugador { get; }
-        private Cola<FaseTurno> fases; // Cola para manejar las fases del turno
-        public FaseTurno FaseActual { get; private set; }
-        public bool movimientoRealizado; //True si se hizo un moviento        
 
-        public Turno(Jugador jugador) // Constructor: el jugador que recibe tiene el turno
+        // cola que guarda el orden de las fases (Planeacion, Ataque, Refuerzo)
+        private Cola<FaseTurno> fases;
+
+        // fase actual del turno
+        public FaseTurno FaseActual { get; private set; }
+
+        // indicador si ya se realizo el ataque en este turno
+        private bool ataqueRealizado;
+
+        // indicador si ya se realizo el movimiento de tropas en la fase de planeacion
+        public bool movimientoRealizado;
+
+        // constructor: recibe el jugador y prepara las fases en orden inicial
+        public Turno(Jugador jugador)
         {
             Jugador = jugador;
-            fases = new Cola<FaseTurno>(3); // Capacidad fija de 3 fases
-
-            fases.Enqueue(FaseTurno.Planeacion); 
-            fases.Enqueue(FaseTurno.Ataque);
-            fases.Enqueue(FaseTurno.Refuerzo);
-
-            FaseActual = fases.Peek(); // La fase actual es la primera en la cola
-            movimientoRealizado = false; // No se ha realizado movimiento al iniciar el turno
+            ReiniciarFases();
         }
 
-        public void SiguienteFase() 
+        // reinicia la cola de fases al inicio del turno en el orden:
+        // Planeacion -> Ataque -> Refuerzo
+        public void ReiniciarFases()
         {
-            fases.Enqueue(fases.Dequeue()); // Mueve la fase actual al final de la cola
-            FaseActual = fases.Peek(); // Actualiza la fase actual
-            if (FaseActual == FaseTurno.Planeacion) 
-                movimientoRealizado = false; // Reinicia el movimiento para la fase de planeación
-        }
-
-        public void ReiniciarFases() // Reinicia las fases al inicio del turno
-        {
-            //fases = new Cola<FaseTurno>(new[] { FaseTurno.Refuerzo, FaseTurno.Ataque, FaseTurno.Planeacion }); 
-            fases = new Cola<FaseTurno>(3); 
-            fases.Enqueue(FaseTurno.Refuerzo);
-            fases.Enqueue(FaseTurno.Ataque);
+            fases = new Cola<FaseTurno>(3);
             fases.Enqueue(FaseTurno.Planeacion);
+            fases.Enqueue(FaseTurno.Ataque);
+            fases.Enqueue(FaseTurno.Refuerzo);
 
-            FaseActual = fases.Peek(); 
+            FaseActual = fases.Peek();
             movimientoRealizado = false;
+            ataqueRealizado = false;
         }
 
-        // ==================== FASE DE REFUERZO ====================
-        public void FaseRefuerzo(ImpLinkedList<Continente> continentes) //Verifica que sea la fase correcta y aplica refuerzos
+        // avanza a la siguiente fase y resetea los flags segun corresponda
+        public void SiguienteFase()
         {
-            if (!EsFase(FaseTurno.Refuerzo)) return; // Verifica que sea la fase correcta
-            AplicarRefuerzos(continentes);  //LLama al metodo que aplica los refuerzos
+            fases.Enqueue(fases.Dequeue());
+            FaseActual = fases.Peek();
+
+            // al volver a Planeacion, permito mover tropas otra vez
+            if (FaseActual == FaseTurno.Planeacion)
+                movimientoRealizado = false;
+
+            // al iniciar Ataque, permito un nuevo ataque
+            if (FaseActual == FaseTurno.Ataque)
+                ataqueRealizado = false;
         }
 
-        // ==================== FASE DE ATAQUE ====================
-        public bool FaseAtaque(Territorio origen, Territorio destino, int ejercitosAtacante, int ejercitosDefensor, Random random) //Destino es el territorio que se ataca
+        // Fase de planeacion: mover tropas entre territorios propios
+        public bool FasePlaneacion(Territorio origen, Territorio destino, int cantidad)
         {
-            if (!EsFase(FaseTurno.Ataque)) return false;
-            return Atacar(origen, destino, ejercitosAtacante, ejercitosDefensor, random); //Llama al metodo que realiza el ataque
-        }
-
-        // ==================== FASE DE PLANEACI N ====================
-        public bool FasePlaneacion(Territorio origen, Territorio destino, int cantidad) //Destino es hacia donde se mueven las tropas y origen de donde 
-        {
-            if (!EsFase(FaseTurno.Planeacion)) return false;
-            return MoverTropasPlaneacion(origen, destino, cantidad); //Llama al metodo que mueve las tropas
-        }
-
-        // -------------------- M todos internos --------------------
-
-        public bool EsFase(FaseTurno fase) // Verifica si es la fase actual
-        {
-            if (FaseActual != fase) 
+            if (FaseActual != FaseTurno.Planeacion)
             {
-                Console.WriteLine($"No es la fase de {fase}.");
+                Console.WriteLine("No es fase de planeacion.");
                 return false;
             }
-            return true;
+
+            return MoverTropasPlaneacion(origen, destino, cantidad);
         }
 
-        public void AplicarRefuerzos(ImpLinkedList<Continente> continentes)
+        // Fase de ataque: permite exactamente un ataque por turno
+        public bool FaseAtaque(Territorio origen, Territorio destino, int atq, int def, Random rnd)
         {
-            // 1) Calcular refuerzo base: territorios controlados / 3
-            int totalTerritorios = Jugador.TerritoriosConq();
-            int refuerzoBase = totalTerritorios / 3;
+            if (FaseActual != FaseTurno.Ataque)
+            {
+                Console.WriteLine("No es fase de ataque.");
+                return false;
+            }
+            if (ataqueRealizado)
+            {
+                Console.WriteLine("Ya realizaste tu ataque este turno.");
+                return false;
+            }
 
-            // 2) Calcular bonificacion por continentes completos
-            int bonusContinente = 0;
-            foreach (var cont in continentes) // Recorre todos los continentes
+            bool resultado = Atacar(origen, destino, atq, def, rnd);
+            ataqueRealizado = true;
+            return resultado;
+        }
+
+        // Fase de refuerzo: aplica refuerzos automaticos
+        public void FaseRefuerzo(ImpLinkedList<Continente> continentes)
+        {
+            if (FaseActual != FaseTurno.Refuerzo)
+            {
+                Console.WriteLine("No es fase de refuerzo.");
+                return;
+            }
+
+            AplicarRefuerzos(continentes);
+        }
+
+        // ===================== metodos internos =====================
+
+        // aplica refuerzos basados en numero de territorios y bonus de continentes
+        private void AplicarRefuerzos(ImpLinkedList<Continente> continentes)
+        {
+            int refuerzoBase = Jugador.TerritoriosConq() / 3;
+            int bonus = 0;
+            foreach (var cont in continentes)
             {
                 if (cont.ControlTotal(Jugador))
-                    bonusContinente += cont.BonusRefuerzo; //BonusRefuerzo es un atributo de continente
+                    bonus += cont.BonusRefuerzo;
             }
 
-            // 3) Asignar refuerzos al jugador
-            int totalRefuerzos = refuerzoBase + bonusContinente;
-            Jugador.TropasDisponibles += totalRefuerzos;
-
-            Console.WriteLine(
-                $"{Jugador.Nombre} recibe {refuerzoBase} tropas por territorios " +
-                $"+ {bonusContinente} por continentes = {totalRefuerzos} refuerzos.");
+            int total = refuerzoBase + bonus;
+            Jugador.TropasDisponibles += total;
+            Console.WriteLine($"{Jugador.Nombre} recibe {refuerzoBase} por territorios + {bonus} por continentes = {total} refuerzos.");
         }
 
-
-        public bool Atacar(Territorio origen, Territorio destino, int ejercitosAtacante, int ejercitosDefensor, Random random) // Realiza el ataque
+        // realiza el combate, ajusta tropas y gestiona conquistas o perdidas
+        private bool Atacar(Territorio origen, Territorio destino, int ejercitosAtacante, int ejercitosDefensor, Random random)
         {
-            if (!ValidarAtaque(origen, destino, ejercitosAtacante, ejercitosDefensor)) // Valida si el ataque es posible llmando a validarAtaque
-                return false;
-
-            var atacanteDados = LanzarDados(ejercitosAtacante, random); // Lanza los dados para el atacante y defensor
-            var defensorDados = LanzarDados(ejercitosDefensor, random);
-
-            Console.WriteLine("Dados atacante: " + string.Join(", ", atacanteDados)); // Muestra los resultados de los dados
-            Console.WriteLine("Dados defensor: " + string.Join(", ", defensorDados));
-
-            int comparaciones = Math.Min(atacanteDados.Count, defensorDados.Count); // Numero de comparaciones (máximo 2)
-            for (int i = 0; i < comparaciones; i++)
+            // valida que el origen sea del jugador y tenga al menos 2 tropas
+            if (origen.Dueno_territorio != Jugador || origen.Tropas_territorio < 2)
             {
-                if (atacanteDados[i] > defensorDados[i])  //Compara los valores de los dados
+                Console.WriteLine("No puedes atacar desde este territorio.");
+                return false;
+            }
+
+            // valida que el destino no sea del mismo jugador
+            if (destino.Dueno_territorio == Jugador)
+            {
+                Console.WriteLine("No puedes atacar un territorio que ya es tuyo.");
+                return false;
+            }
+
+            int maxAtq = Math.Min(3, origen.Tropas_territorio - 1);
+            int maxDef = Math.Min(2, destino.Tropas_territorio);
+
+            if (ejercitosAtacante < 1 || ejercitosAtacante > maxAtq)
+            {
+                Console.WriteLine($"Atacante: dados invalidos (1 a {maxAtq}).");
+                return false;
+            }
+            if (ejercitosDefensor < 1 || ejercitosDefensor > maxDef)
+            {
+                Console.WriteLine($"Defensor: dados invalidos (1 a {maxDef}).");
+                return false;
+            }
+
+            var dadosAtq = LanzarDados(ejercitosAtacante, random);
+            var dadosDef = LanzarDados(ejercitosDefensor, random);
+
+            Console.WriteLine($"Dados atacante: {string.Join(", ", dadosAtq)}");
+            Console.WriteLine($"Dados defensor:   {string.Join(", ", dadosDef)}");
+
+            int rondas = Math.Min(dadosAtq.Count, dadosDef.Count);
+            for (int i = 0; i < rondas; i++)
+            {
+                if (dadosAtq[i] > dadosDef[i])
                 {
-                    destino.Restar_Tropas_Terr(1); // Si el valor de defensor es menor, pierde una tropa
-                    Console.WriteLine($"El defensor pierde 1 tropa en {destino.Nombre}.");
+                    // defensor pierde tropas
+                    destino.Restar_Tropas_Terr(1);
+                    Console.WriteLine($"Defensor pierde 1 tropa en {destino.Nombre}.");
+
+                    // si el defensor se queda sin tropas, conquista el territorio
+                    if (destino.Tropas_territorio == 0)
+                        ConquistarTerritorio(origen, destino, ejercitosAtacante);
                 }
                 else
                 {
-                    origen.Restar_Tropas_Terr(1); // Sie el valor del atacante es menor o igual, pierde una tropa
-                    Console.WriteLine($"El atacante pierde 1 tropa en {origen.Nombre}.");
+                    // atacante pierde tropas
+                    origen.Restar_Tropas_Terr(1);
+                    Console.WriteLine($"Atacante pierde 1 tropa en {origen.Nombre}.");
+
+                    // si el atacante se queda sin tropas, pierde el territorio
+                    if (origen.Tropas_territorio == 0)
+                    {
+                        Console.WriteLine($"{Jugador.Nombre} pierde {origen.Nombre} por quedarse sin tropas.");
+                        origen.AsignarDueno_Terr(null);
+                    }
                 }
             }
 
-            if (destino.Tropas_territorio == 0) // Si el defensor se queda sin tropas el atacante conquista el territorio
-                ConquistarTerritorio(origen, destino, ejercitosAtacante);
-
             return true;
         }
 
-        private bool ValidarAtaque(Territorio origen, Territorio destino, int ejercitosAtacante, int ejercitosDefensor) // Valida si el ataque es posible
-        {
-            if (origen.Dueno_territorio != Jugador || origen.Tropas_territorio < 2) // El territorio de origen debe pertenecer al jugador y tener al menos 1 tropas
-            {
-                Console.WriteLine("No puedes atacar desde este territorio."); //Si la condicon no se cumple retorna false
-                return false;
-            }
-            if (destino.Dueno_territorio == null || destino.Dueno_territorio == Jugador) // Verifica que el territorio destino sea enemigo
-            {
-                Console.WriteLine("Debes atacar un territorio enemigo.");
-                return false;
-            }
-            if (!origen.ConfirmarAdyacencia_Terr(destino)) // Verifica que los territorios sean adyacentes
-            {
-                Console.WriteLine("Solo puedes atacar territorios adyacentes.");
-                return false;
-            }
-            int maxAtacante = Math.Min(3, origen.Tropas_territorio - 1); 
-            int maxDefensor = Math.Min(2, destino.Tropas_territorio);
-
-            if (ejercitosAtacante < 1 || ejercitosAtacante > maxAtacante) // Verifica que la cantidad de tropas usadas sea valida
-            {
-                Console.WriteLine($"El atacante solo puede usar entre 1 y {maxAtacante} ej rcitos.");
-                return false;
-            }
-            if (ejercitosDefensor < 1 || ejercitosDefensor > maxDefensor) // Verifica que la cantidad de tropas usadas sea valida
-            {
-                Console.WriteLine($"El defensor solo puede usar entre 1 y {maxDefensor} ej rcitos.");
-                return false;
-            }
-            return true;
-        }
-
+        // lanza los dados y los ordena de mayor a menor
         private Lista<int> LanzarDados(int cantidad, Random random)
         {
-            var dado = new Dado(cantidad, random);
-            var valores = new Lista<int>(dado.Valores);
-            valores.Sort((a, b) => b.CompareTo(a));
-            return valores;
+            var d = new Dado(cantidad, random);
+            var lista = new Lista<int>(d.Valores);
+            lista.Sort((a, b) => b.CompareTo(a));
+            return lista;
         }
 
-        public void ConquistarTerritorio(Territorio origen, Territorio destino, int ejercitosAtacante)
+        // maneja la conquista de un territorio tras eliminar todas sus tropas
+        private void ConquistarTerritorio(Territorio origen, Territorio destino, int ejercitosAtacante)
         {
             Console.WriteLine($"{Jugador.Nombre} ha conquistado {destino.Nombre}!");
-
-            int minTropasMover = ejercitosAtacante; // Mover al menos las tropas usadas en el ataque
-            int maxTropasMover = origen.Tropas_territorio - 1; // Dejar al menos una tropa en el origen
-            int tropasAMover = Math.Min(minTropasMover, maxTropasMover); 
-
-            destino.AsignarDueno_Terr(Jugador); // Cambia el dueño del territorio llamando el metodo de territorio
-            destino.Agregar_Tropas_Terr(tropasAMover); // Mueve las tropas al territorio conquistado
-            origen.Restar_Tropas_Terr(tropasAMover);
-
-            Console.WriteLine($"{Jugador.Nombre} mueve {tropasAMover} tropas de {origen.Nombre} a {destino.Nombre}.");
+            int mover = Math.Min(ejercitosAtacante, origen.Tropas_territorio - 1); // debe dejar al menos 1 tropa en origen
+            destino.AsignarDueno_Terr(Jugador);
+            destino.Agregar_Tropas_Terr(mover);
+            origen.Restar_Tropas_Terr(mover);
+            Console.WriteLine($"{Jugador.Nombre} mueve {mover} tropas de {origen.Nombre} a {destino.Nombre}.");
         }
 
-        public bool MoverTropasPlaneacion(Territorio origen, Territorio destino, int cantidad) 
+        // mueve tropas entre territorios propios durante la fase de planeacion
+        private bool MoverTropasPlaneacion(Territorio origen, Territorio destino, int cantidad)
         {
-            if (movimientoRealizado) // Solo se permite un movimiento por fase de planeacion
+            if (movimientoRealizado)
             {
-                Console.WriteLine("Ya has realizado un movimiento de tropas en esta fase.");
+                Console.WriteLine("Ya moviste tropas en esta fase.");
                 return false;
             }
-            if (origen.Dueno_territorio != Jugador || destino.Dueno_territorio != Jugador) // Ambos territorios deben pertenecer al jugador
+            if (origen.Dueno_territorio != Jugador || destino.Dueno_territorio != Jugador)
             {
-                Console.WriteLine("Ambos territorios deben pertenecerte.");
+                Console.WriteLine("Ambos territorios deben ser tuyos.");
                 return false;
             }
-            if (!origen.ConfirmarAdyacencia_Terr(destino)) // Los territorios deben ser adyacentes
+            if (cantidad < 1 || origen.Tropas_territorio <= cantidad)
             {
-                Console.WriteLine("Los territorios deben ser adyacentes.");
-                return false;
-            }
-            if (cantidad < 1 || origen.Tropas_territorio <= cantidad) // Debe mover al menos una tropa y dejar al menos una en el origen
-            {
-                Console.WriteLine("Debes dejar al menos una tropa en el territorio de origen.");
+                Console.WriteLine("Debes dejar al menos 1 tropa en el origen.");
                 return false;
             }
 
-            origen.Restar_Tropas_Terr(cantidad); //Resta las tropas del territorio de origen
-            destino.Agregar_Tropas_Terr(cantidad); //Anade las tropas al territorio destino
+            origen.Restar_Tropas_Terr(cantidad);
+            destino.Agregar_Tropas_Terr(cantidad);
             movimientoRealizado = true;
-
             Console.WriteLine($"{Jugador.Nombre} mueve {cantidad} tropas de {origen.Nombre} a {destino.Nombre}.");
             return true;
         }
+        public void SiguienteFaseAutomatica()
+        {
+            SiguienteFase();
+        }
+
     }
 
 
