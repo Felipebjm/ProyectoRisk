@@ -14,7 +14,8 @@ namespace LogicLayer
     public Jugador Jugador3 { get; private set; } // Nuevo jugador
 
     public ImpLinkedList<Territorio> Territorios { get; private set; } 
-    private Cola<Turno> turnos; // Cola para manejar los turnos de los jugadores
+    public ImpLinkedList<Continente> Continentes { get; private set; } 
+    public Cola<Turno> turnos; // Cola para manejar los turnos de los jugadores
     public Turno TurnoActual { get; private set; } // Turno actual
 
     public Gameplay()
@@ -23,22 +24,31 @@ namespace LogicLayer
         Jugador1 = new Jugador(1, "Jugador 1", ConsoleColor.Red);
         Jugador2 = new Jugador(2, "Jugador 2", ConsoleColor.Blue);
         Jugador3 = new Jugador(3, "Jugador 3", ConsoleColor.Green);
-
         // Tropas iniciales
         Jugador1.TropasDisponibles = 35;
         Jugador2.TropasDisponibles = 35;
         Jugador3.TropasDisponibles = 35;
 
-        // Crear territorios
-        Territorios = new ImpLinkedList<Territorio>();
-        Continente continenteDummy = new Continente(1, "Continente Único", 0, 30);
+        //Crear continentes
+        CrearContinentes();
 
-        for (int i = 1; i <= 30; i++) // Crear 30 territorios
-        {
-            Territorio territorio = new Territorio(i, $"Territorio {i}", continenteDummy, 0, 0);
+        //Crear territorios y asignarlos a su continente
+        Territorios = new ImpLinkedList<Territorio>();
+        for (int i = 1; i <= 30; i++) //cada iteracion i es el id del territorio
+            {
+            // Determina a qué continente pertenece el territorio i
+            int continenteId = ObtenerContinenteIdPorTerritorio(i); // Metodo que devuelve el id del continente segun el id del territorio
+            var continente = Continentes.First(c => c.Id == continenteId); // Busca el continente en la lista de continentes
+
+             // Construye el territorio con referencia al continente
+            var territorio = new Territorio(i, $"Territorio {i}", continente, 0,  0);
             Territorios.Agregar(territorio);
-            continenteDummy.Anadir_Territorio(territorio);
+
+            // Registra el territorio dentro del continente
+            continente.Anadir_Territorio(territorio);
         }
+
+   
 
         // Asignar territorios alternadamente a los 3 jugadores
         int idx = 0;
@@ -62,8 +72,26 @@ namespace LogicLayer
 
         CambiarTurno();
     }
+    public void CrearContinentes()
+    {
+            Continentes = new ImpLinkedList<Continente>();
 
-    public void CambiarTurno()
+            Continentes.Agregar(new Continente(1, "América del Norte", 5, 6)); //id, nombre, bonus, cantidad de territorios
+            Continentes.Agregar(new Continente(2, "Europa",4, 6));
+            Continentes.Agregar(new Continente(3, "Asia", 2, 8));
+            Continentes.Agregar(new Continente(4, "África", 3, 5));
+            Continentes.Agregar(new Continente(5, "Oceanía", 2, 5));
+            Continentes.Agregar(new Continente(6, "América del Sur", 2, 4));
+     }
+    public int ObtenerContinenteIdPorTerritorio(int idTerritorio) //Para obtener el id del continente segun el id del territorio
+        {
+        if (idTerritorio <= 6) return 1;  // America del Norte
+        if (idTerritorio <= 12) return 2;  // Europa
+        if (idTerritorio <= 20) return 3;  // Asia
+        if (idTerritorio <= 25) return 4;  // África
+        return 5;                          // Oceanía
+    }
+        public void CambiarTurno()
     {
         if (TurnoActual != null)
             TurnoActual.Jugador.Turno = false;
@@ -93,7 +121,7 @@ namespace LogicLayer
                     
         {
         // Fase de refuerzo
-        TurnoActual.FaseRefuerzo(continentes);
+        TurnoActual.FaseRefuerzo(this.Continentes);
         TurnoActual.SiguienteFase();
 
         // Fase de ataque
