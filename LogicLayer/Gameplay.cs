@@ -113,7 +113,7 @@ namespace LogicLayer
         Console.WriteLine($"Empieza el turno de: {TurnoActual.Jugador.Nombre}");
     }
 
-    public void EjecutarTurno(ImpLinkedList<Continente> continentes, Random random, Territorio origen,
+    public void EjecutarTurno(ImpLinkedList<Continente> continentes, Random random, Territorio origen, 
     Territorio destino,
     int ejercitosAtacante,
     int ejercitosDefensor,

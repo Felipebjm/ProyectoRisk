@@ -55,8 +55,8 @@ namespace LogicLayer
 
         // avanza a la siguiente fase y resetea los flags segun corresponda
         public void SiguienteFase()
-        {
-            fases.Enqueue(fases.Dequeue());
+        { 
+            fases.Enqueue(fases.Dequeue()); // rota la cola
             FaseActual = fases.Peek();
 
             // al volver a Planeacion, permito mover tropas otra vez
