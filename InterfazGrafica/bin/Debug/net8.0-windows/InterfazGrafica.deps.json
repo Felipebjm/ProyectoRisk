@@ -1,0 +1,56 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "InterfazGrafica/1.0.0": {
+        "dependencies": {
+          "LogicLayer": "1.0.0",
+          "PruebaConsola": "1.0.0"
+        },
+        "runtime": {
+          "InterfazGrafica.dll": {}
+        }
+      },
+      "LogicLayer/1.0.0": {
+        "runtime": {
+          "LogicLayer.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "PruebaConsola/1.0.0": {
+        "dependencies": {
+          "LogicLayer": "1.0.0"
+        },
+        "runtime": {
+          "PruebaConsola.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "InterfazGrafica/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LogicLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PruebaConsola/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
