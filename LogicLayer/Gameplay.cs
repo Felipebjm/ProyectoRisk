@@ -21,9 +21,9 @@ namespace LogicLayer
     public Gameplay()
     {
         // Crear jugadores
-        Jugador1 = new Jugador(1, "Jugador 1", ConsoleColor.Red);
-        Jugador2 = new Jugador(2, "Jugador 2", ConsoleColor.Blue);
-        Jugador3 = new Jugador(3, "Jugador 3", ConsoleColor.Green);
+        Jugador1 = new Jugador(1, "Jugador 1", System.Drawing.Color.Red);
+        Jugador2 = new Jugador(2, "Jugador 2", System.Drawing.Color.Blue);
+        Jugador3 = new Jugador(3, "Jugador 3", System.Drawing.Color.Green);
         // Tropas iniciales
         Jugador1.TropasDisponibles = 35;
         Jugador2.TropasDisponibles = 35;
@@ -34,7 +34,7 @@ namespace LogicLayer
 
         //Crear territorios y asignarlos a su continente
         Territorios = new ImpLinkedList<Territorio>();
-        for (int i = 1; i <= 30; i++) //cada iteracion i es el id del territorio
+        for (int i = 1; i <= 34; i++) //cada iteracion i es el id del territorio
             {
             // Determina a qué continente pertenece el territorio i
             int continenteId = ObtenerContinenteIdPorTerritorio(i); // Metodo que devuelve el id del continente segun el id del territorio
@@ -89,8 +89,9 @@ namespace LogicLayer
         if (idTerritorio <= 12) return 2;  // Europa
         if (idTerritorio <= 20) return 3;  // Asia
         if (idTerritorio <= 25) return 4;  // África
-        return 5;                          // Oceanía
-    }
+        if (idTerritorio <= 30) return 5;  // Oceanía
+        return 6;                      // america del Sur
+        }
         public void CambiarTurno()
     {
         if (TurnoActual != null)

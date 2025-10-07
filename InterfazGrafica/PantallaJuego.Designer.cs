@@ -30,6 +30,7 @@
         {
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             panelInferior = new Panel();
+            txtAnuncios = new TextBox();
             txtDadosD = new TextBox();
             txtDadosA = new TextBox();
             lblDadosD = new Label();
@@ -57,6 +58,7 @@
             // panelInferior
             // 
             panelInferior.BackColor = SystemColors.InactiveCaption;
+            panelInferior.Controls.Add(txtAnuncios);
             panelInferior.Controls.Add(txtDadosD);
             panelInferior.Controls.Add(txtDadosA);
             panelInferior.Controls.Add(lblDadosD);
@@ -82,6 +84,14 @@
             panelInferior.Name = "panelInferior";
             panelInferior.Size = new Size(1082, 150);
             panelInferior.TabIndex = 0;
+            // 
+            // txtAnuncios
+            // 
+            txtAnuncios.Location = new Point(372, 14);
+            txtAnuncios.Name = "txtAnuncios";
+            txtAnuncios.ReadOnly = true;
+            txtAnuncios.Size = new Size(368, 23);
+            txtAnuncios.TabIndex = 21;
             // 
             // txtDadosD
             // 
@@ -118,7 +128,7 @@
             // lblFase
             // 
             lblFase.AutoSize = true;
-            lblFase.Location = new Point(219, 22);
+            lblFase.Location = new Point(213, 50);
             lblFase.Name = "lblFase";
             lblFase.Size = new Size(33, 15);
             lblFase.TabIndex = 16;
@@ -126,7 +136,7 @@
             // 
             // txtFase
             // 
-            txtFase.Location = new Point(267, 17);
+            txtFase.Location = new Point(261, 45);
             txtFase.Name = "txtFase";
             txtFase.ReadOnly = true;
             txtFase.Size = new Size(100, 23);
@@ -145,7 +155,7 @@
             // lblCantidad
             // 
             lblCantidad.AutoSize = true;
-            lblCantidad.Location = new Point(640, 25);
+            lblCantidad.Location = new Point(640, 50);
             lblCantidad.Name = "lblCantidad";
             lblCantidad.Size = new Size(107, 15);
             lblCantidad.TabIndex = 13;
@@ -154,7 +164,7 @@
             // lblIdDestino
             // 
             lblIdDestino.AutoSize = true;
-            lblIdDestino.Location = new Point(534, 25);
+            lblIdDestino.Location = new Point(534, 50);
             lblIdDestino.Name = "lblIdDestino";
             lblIdDestino.Size = new Size(79, 15);
             lblIdDestino.TabIndex = 12;
@@ -163,7 +173,7 @@
             // lblIdOrigen
             // 
             lblIdOrigen.AutoSize = true;
-            lblIdOrigen.Location = new Point(400, 25);
+            lblIdOrigen.Location = new Point(400, 50);
             lblIdOrigen.Name = "lblIdOrigen";
             lblIdOrigen.Size = new Size(71, 15);
             lblIdOrigen.TabIndex = 11;
@@ -171,28 +181,28 @@
             // 
             // txtCantidad
             // 
-            txtCantidad.Location = new Point(640, 50);
+            txtCantidad.Location = new Point(640, 75);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(100, 23);
             txtCantidad.TabIndex = 10;
             // 
             // txtIdDestino
             // 
-            txtIdDestino.Location = new Point(523, 50);
+            txtIdDestino.Location = new Point(523, 75);
             txtIdDestino.Name = "txtIdDestino";
             txtIdDestino.Size = new Size(100, 23);
             txtIdDestino.TabIndex = 9;
             // 
             // txtIdOrigen
             // 
-            txtIdOrigen.Location = new Point(385, 50);
+            txtIdOrigen.Location = new Point(385, 75);
             txtIdOrigen.Name = "txtIdOrigen";
             txtIdOrigen.Size = new Size(100, 23);
             txtIdOrigen.TabIndex = 8;
             // 
             // txtTurno
             // 
-            txtTurno.Location = new Point(267, 47);
+            txtTurno.Location = new Point(261, 75);
             txtTurno.Name = "txtTurno";
             txtTurno.ReadOnly = true;
             txtTurno.Size = new Size(100, 23);
@@ -201,7 +211,7 @@
             // lblTurno
             // 
             lblTurno.AutoSize = true;
-            lblTurno.Location = new Point(203, 50);
+            lblTurno.Location = new Point(197, 78);
             lblTurno.Name = "lblTurno";
             lblTurno.Size = new Size(58, 15);
             lblTurno.TabIndex = 6;
@@ -209,6 +219,7 @@
             // 
             // txtTropasJ3
             // 
+            txtTropasJ3.BackColor = Color.DarkGreen;
             txtTropasJ3.Location = new Point(81, 72);
             txtTropasJ3.Name = "txtTropasJ3";
             txtTropasJ3.ReadOnly = true;
@@ -217,6 +228,7 @@
             // 
             // txtTropasJ2
             // 
+            txtTropasJ2.BackColor = Color.Blue;
             txtTropasJ2.Location = new Point(81, 43);
             txtTropasJ2.Name = "txtTropasJ2";
             txtTropasJ2.ReadOnly = true;
@@ -225,6 +237,7 @@
             // 
             // txtTropasJ1
             // 
+            txtTropasJ1.BackColor = Color.Red;
             txtTropasJ1.Location = new Point(81, 14);
             txtTropasJ1.Name = "txtTropasJ1";
             txtTropasJ1.ReadOnly = true;
@@ -296,5 +309,6 @@
         private TextBox txtFase;
         private TextBox txtDadosD;
         private TextBox txtDadosA;
+        private TextBox txtAnuncios;
     }
 }

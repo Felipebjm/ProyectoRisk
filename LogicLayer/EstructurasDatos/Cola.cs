@@ -12,7 +12,10 @@ public class Cola<T>
     private int last;
     private int size;
     private readonly int capacity;
-
+    public int Count
+    {
+        get { return size; }
+    }
     public Cola(int cap)
     {
         if (cap <= 0)

@@ -13,7 +13,7 @@ namespace LogicLayer
         // Identidad
         public int Id { get; set; }  // Identificador único del jugador
         public string Nombre { get; set; } 
-        public ConsoleColor Color { get; set; }
+        public System.Drawing.Color Color { get; set; }
 
         public ImpLinkedList<Territorio> Territorios { get; set; } // Territorios controlados por el jugador
         public int TropasDisponibles { get; set; } 
@@ -30,7 +30,7 @@ namespace LogicLayer
 
 
         // Metodo constructor
-        public Jugador(int id, string nombre, ConsoleColor color) //No estan los territorios pq cuando se crea el jugador no tiene pero se puede poner para probar
+        public Jugador(int id, string nombre, System.Drawing.Color color) //No estan los territorios pq cuando se crea el jugador no tiene pero se puede poner para probar
         {
             Id = id;
             Nombre = nombre;
