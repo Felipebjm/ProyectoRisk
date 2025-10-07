@@ -311,12 +311,62 @@ namespace InterfazGrafica
                     break;
 
                 case FaseTurno.Ataque:
-                    bool conquista = juego.TurnoActual.FaseAtaque(origen, destino, atq, def, rnd);
-                    juego.TurnoActual.SiguienteFaseAutomatica();
-                    txtAnuncios.Text = conquista
-                        ? $"{juego.TurnoActual.Jugador.Nombre} ha ganado el ataque!"
-                        : $"{juego.TurnoActual.Jugador.Nombre} defendió el territorio.";
-                    break;
+                    {
+                        if (origen.Dueno_territorio == destino.Dueno_territorio)
+                        {
+                            MessageBox.Show("No puedes atacar tus propios territorios.");
+                            return;
+                        }
+
+                        if (origen.Tropas_territorio <= 1)
+                        {
+                            MessageBox.Show("Necesitas al menos 2 tropas para atacar.");
+                            return;
+                        }
+
+                        // Determinar cantidad de dados según las tropas y los cuadros de texto
+                        int dadosAtacante = Math.Min(3, Math.Min(atq > 0 ? atq : 3, origen.Tropas_territorio - 1));
+                        int dadosDefensor = Math.Min(2, def > 0 ? def : 2);
+
+                        // Simular tiradas
+                        var tiradaAtacante = Enumerable.Range(0, dadosAtacante).Select(_ => rnd.Next(1, 7)).OrderByDescending(v => v).ToList();
+                        var tiradaDefensor = Enumerable.Range(0, dadosDefensor).Select(_ => rnd.Next(1, 7)).OrderByDescending(v => v).ToList();
+
+                        txtAnuncios.Text += $"Atacante tira: {string.Join(", ", tiradaAtacante)}\r\n";
+                        txtAnuncios.Text += $"Defensor tira: {string.Join(", ", tiradaDefensor)}\r\n";
+
+                        // Resolver batalla
+                        int comparaciones = Math.Min(dadosAtacante, dadosDefensor);
+                        for (int i = 0; i < comparaciones; i++)
+                        {
+                            if (tiradaAtacante[i] > tiradaDefensor[i])
+                                destino.Tropas_territorio--;
+                            else
+                                origen.Tropas_territorio--;
+                        }
+
+                        // Si el defensor quedó sin tropas → conquista
+                        if (destino.Tropas_territorio <= 0)
+                        {
+                            destino.AsignarDueno_Terr(origen.Dueno_territorio);
+                            destino.Tropas_territorio = Math.Max(1, qty > 0 ? qty : 1); // mover 1 tropa
+                            origen.Tropas_territorio -= destino.Tropas_territorio;
+                            txtAnuncios.Text += $"¡{origen.Dueno_territorio.Nombre} conquista el territorio {destino.Id}!\r\n";
+                        }
+
+                        RefrescarUI();
+
+                        juego.TurnoActual.SiguienteFase();
+                        // Si después de avanzar la fase es Refuerzo, cambiar turno
+                        if (juego.TurnoActual.FaseActual == FaseTurno.Refuerzo)
+                        {
+                            juego.CambiarTurno();
+                            txtAnuncios.Text += $" Turno de {juego.TurnoActual.Jugador.Nombre}.";
+                        }
+
+                        break;
+                    }
+
 
                 case FaseTurno.Refuerzo:
                     juego.TurnoActual.FaseRefuerzo(juego.Continentes);
