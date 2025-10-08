@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PantallaInicio));
             lblJ1 = new Label();
             lblJ2 = new Label();
             lblJ3 = new Label();
@@ -40,6 +41,7 @@
             // lblJ1
             // 
             lblJ1.AutoSize = true;
+            lblJ1.BackColor = SystemColors.ActiveCaption;
             lblJ1.Location = new Point(284, 129);
             lblJ1.Name = "lblJ1";
             lblJ1.Size = new Size(106, 15);
@@ -49,16 +51,17 @@
             // lblJ2
             // 
             lblJ2.AutoSize = true;
+            lblJ2.BackColor = SystemColors.ActiveCaption;
             lblJ2.Location = new Point(284, 198);
             lblJ2.Name = "lblJ2";
             lblJ2.Size = new Size(106, 15);
             lblJ2.TabIndex = 1;
             lblJ2.Text = "Jugador 2 nombre:";
-
             // 
             // lblJ3
             // 
             lblJ3.AutoSize = true;
+            lblJ3.BackColor = SystemColors.ActiveCaption;
             lblJ3.Location = new Point(284, 269);
             lblJ3.Name = "lblJ3";
             lblJ3.Size = new Size(106, 15);
@@ -67,6 +70,7 @@
             // 
             // txtJugador1
             // 
+            txtJugador1.BackColor = SystemColors.Info;
             txtJugador1.Location = new Point(433, 129);
             txtJugador1.Name = "txtJugador1";
             txtJugador1.Size = new Size(100, 23);
@@ -74,6 +78,7 @@
             // 
             // txtJugador2
             // 
+            txtJugador2.BackColor = SystemColors.Info;
             txtJugador2.Location = new Point(433, 190);
             txtJugador2.Name = "txtJugador2";
             txtJugador2.Size = new Size(100, 23);
@@ -81,6 +86,7 @@
             // 
             // txtJugador3
             // 
+            txtJugador3.BackColor = SystemColors.Info;
             txtJugador3.Location = new Point(433, 261);
             txtJugador3.Name = "txtJugador3";
             txtJugador3.Size = new Size(100, 23);
@@ -88,18 +94,20 @@
             // 
             // btnIniciar
             // 
+            btnIniciar.BackColor = Color.FromArgb(128, 255, 128);
             btnIniciar.Location = new Point(198, 337);
             btnIniciar.Name = "btnIniciar";
             btnIniciar.Size = new Size(445, 23);
             btnIniciar.TabIndex = 8;
             btnIniciar.Text = "Iniciar Partida";
-            btnIniciar.UseVisualStyleBackColor = true;
+            btnIniciar.UseVisualStyleBackColor = false;
             btnIniciar.Click += btnIniciar_Click;
             // 
             // PantallaInicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(800, 450);
             Controls.Add(btnIniciar);
             Controls.Add(txtJugador3);

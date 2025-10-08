@@ -116,12 +116,12 @@ namespace LogicLayer
         // aplica refuerzos basados en numero de territorios y bonus de continentes
         private void AplicarRefuerzos(ImpLinkedList<Continente> continentes)
         {
-            int refuerzoBase = Jugador.TerritoriosConq() / 3;
+            int refuerzoBase = Jugador.TerritoriosConq() / 3; //
             int bonus = 0;
             foreach (var cont in continentes)
             {
-                if (cont.ControlTotal(Jugador))
-                    bonus += cont.BonusRefuerzo;
+                if (cont.ControlTotal(Jugador)) // si el jugador controla todo el continente
+                    bonus += cont.BonusRefuerzo; // suma el bonus del continente
             }
 
             int total = refuerzoBase + bonus;

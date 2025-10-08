@@ -1,4 +1,5 @@
 ﻿using LogicLayer;
+using LogicLayer.EstructurasDatos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,7 @@ namespace InterfazGrafica
         public Cola<Jugador> colaDistribucion; // Cola para la distribución de territorios
         public bool distribucionActiva = false; // Variable para controlar si la distribución está activa
 
-        // NUEVO: guardamos los botones creados para actualizar directamente
+        // Guarda los botones creados para actualizar directamente
         private Dictionary<int, Button> botonesTerritorio = new Dictionary<int, Button>();
 
         //Metodo constructor que recibe los 3 nombres de los jugadores e incializa el juego
@@ -53,17 +54,17 @@ namespace InterfazGrafica
             colaDistribucion.Enqueue(juego.Jugador2);
             colaDistribucion.Enqueue(juego.Jugador3);
 
-            // MARCA IMPORTANTE: activamos la fase de distribución aquí
+            // Se activa fase de distribución aquí
             distribucionActiva = true;
 
             // Controles durante la distribución:
-            // Queremos que el jugador seleccione el territorio destino y la cantidad.
-            txtIdOrigen.Enabled = false;            // no usamos origen durante la colocación inicial
-            txtIdDestino.Enabled = true;            // el click en un botón llenará el destino
+            //  el jugador selcciona el territorio destino y la cantidad.
+            txtIdOrigen.Enabled = false;            
+            txtIdDestino.Enabled = true;            // el click en un boton llenara el destino
             txtCantidad.Enabled = true;
             btnEjecutar.Enabled = true;
 
-            // Deshabilitar controles que no se usan hasta que termine la distribución
+            // Deshabilitar controles que no se usan hasta que termine la distribucion
             txtDadosA.Enabled = false;
             txtDadosD.Enabled = false;
 
@@ -147,7 +148,7 @@ namespace InterfazGrafica
                 colaDistribucion.Dequeue(); //Pasa al siguiente jugador
                 if (colaDistribucion.Count == 0)
                 {
-                    // Termina la distribución: habilitamos el flujo normal
+                    // Termina la distribucion y se habilita el flujo normal
                     distribucionActiva = false;
                     txtAnuncios.Text += "Colocación inicial completada. Comienza el juego.\r\n\r\n";
 
@@ -158,16 +159,14 @@ namespace InterfazGrafica
                     txtDadosA.Enabled = true;
                     txtDadosD.Enabled = true;
 
-                    // (Opcional) establecer la fase/turno inicial si el modelo lo requiere:
-                    // Por ejemplo, si quieres iniciar en Planeacion explícitamente:
-                    // juego.TurnoActual.FaseActual = FaseTurno.Planeacion;
+                    
 
                     RefrescarUI();
                     return;
                 }
             }
 
-            // Si aún quedan jugadores por distribuir, mostrar el jugador actual y sus tropas
+            // Si todavia quedan jugadores por distribuir, mostrar el jugador actual y sus tropas
             if (distribucionActiva && colaDistribucion.Count > 0)
             {
                 var actual = colaDistribucion.Peek();
@@ -178,7 +177,7 @@ namespace InterfazGrafica
         //Metodo que genera los botones de los territorios en el panel
         public void GenerarBotonesTerritorio()
         {
-            // BORRAR botones previos (si se vuelve a inicializar) — evita duplicados
+            // borra los botones previos parar evitar que se dupliquen
             foreach (var b in botonesTerritorio.Values)
                 this.Controls.Remove(b);
             botonesTerritorio.Clear();
@@ -192,13 +191,13 @@ namespace InterfazGrafica
                     Size = new Size(60, 30),
                     Location = posiciones[t.Id], //La posicion del territorio en el panel
                     FlatStyle = FlatStyle.Flat,
-                    Text = $"{t.Id}:{t.Tropas_territorio}", // INICIALIZAR texto
+                    Text = $"{t.Id}:{t.Tropas_territorio}", // inicializa texto
                     BackColor = t.Dueno_territorio.Color
                 };
                 btn.Click += BotonTerritorio_Click;
                 this.Controls.Add(btn); //Agrega el boton al panel
 
-                // Guardamos referencia para actualizaciones rápidas
+                // guarda la referencia para actualizaciones rapidas
                 botonesTerritorio[t.Id] = btn;
             }
         }
@@ -215,7 +214,7 @@ namespace InterfazGrafica
             bool normal = !distribucionActiva;
             txtIdOrigen.Enabled = normal;
             txtIdDestino.Enabled = normal || distribucionActiva; // destino activo durante distribucion
-            txtCantidad.Enabled = normal || distribucionActiva;   // si no es refuerzo quizá quieras desactivar
+            txtCantidad.Enabled = normal || distribucionActiva;   
             txtDadosA.Enabled = normal;
             txtDadosD.Enabled = normal;
 
@@ -234,7 +233,7 @@ namespace InterfazGrafica
                     break;
             }
 
-            // Refrescar únicamente los botones de territorios creados (más robusto)
+            // Refrescar unicamente los botones de territorios creados 
             foreach (var kv in botonesTerritorio)
             {
                 int id = kv.Key;
@@ -242,7 +241,7 @@ namespace InterfazGrafica
                 var territorio = juego.Territorios.First(t => t.Id == id); //Busca el territorio por su id
                 btn.Text = $"{territorio.Id}:{territorio.Tropas_territorio}";
                 btn.BackColor = territorio.Dueno_territorio.Color;
-                btn.Refresh(); // fuerza repintado (opcional)
+                btn.Refresh(); // fuerza repintado 
             }
         }
 
@@ -257,12 +256,12 @@ namespace InterfazGrafica
             // A partir de aquí id es seguro
             if (distribucionActiva)
             {
-                // Durante la distribución el click selecciona el destino
+                // Durante la distribucion el click selecciona el destino
                 txtIdDestino.Text = id.ToString();
             }
             else
             {
-                // Flujo normal: llenar origin y destination para facilitar operaciones
+                // Flujo normal
                 txtIdOrigen.Text = id.ToString();
                 txtIdDestino.Text = id.ToString();
             }
@@ -272,10 +271,10 @@ namespace InterfazGrafica
         //Logica del boton ejecutar
         public void btnEjecutar_Click(object sender, EventArgs e)
         {
-            // 1) FASE DE DISTRIBUCIÓN INICIAL
+            // FASE DE DISTRIBUCIÓN INICIAL
             if (distribucionActiva)
             {
-                // Leemos destino y cantidad desde los TextBox (NOTA: durante distribucion usamos txtIdDestino)
+                // Lee destino y cantidad desde los TextBox 
                 int idDest = int.TryParse(txtIdDestino.Text, out var d) ? d : 0;
                 int cantidad = int.TryParse(txtCantidad.Text, out var c) ? c : 0;
 
@@ -287,32 +286,32 @@ namespace InterfazGrafica
                 return;
             }
 
-            // 2) FLUJO NORMAL DE JUEGO
-            int idO = int.TryParse(txtIdOrigen.Text, out var o) ? o : 0;
-            int idD = int.TryParse(txtIdDestino.Text, out var dd) ? dd : 0;
-            int qty = int.TryParse(txtCantidad.Text, out var q) ? q : 0;
-            int atq = int.TryParse(txtDadosA.Text, out var a) ? a : 0;
-            int def = int.TryParse(txtDadosD.Text, out var df) ? df : 0;
+            // FLUJO NORMAL DE JUEGO
+            int idO = int.TryParse(txtIdOrigen.Text, out var o) ? o : 0; // origen
+            int idD = int.TryParse(txtIdDestino.Text, out var dd) ? dd : 0; // destino
+            int qty = int.TryParse(txtCantidad.Text, out var q) ? q : 0; // cantidad
+            int atq = int.TryParse(txtDadosA.Text, out var a) ? a : 0; // dados atacante
+            int def = int.TryParse(txtDadosD.Text, out var df) ? df : 0; // dados defensor
 
             var origen = juego.Territorios.FirstOrDefault(t => t.Id == idO);
             var destino = juego.Territorios.FirstOrDefault(t => t.Id == idD);
-            if (origen == null || destino == null)
+            if (origen == null || destino == null) // Verifica que los territorios existan
             {
-                MessageBox.Show("Selecciona un territorio válido.");
+                MessageBox.Show("Selecciona un territorio valido.");
                 return;
             }
 
-            switch (juego.TurnoActual.FaseActual)
+            switch (juego.TurnoActual.FaseActual) // Ejecuta la accion segun la fase actual
             {
                 case FaseTurno.Planeacion:
                     juego.TurnoActual.FasePlaneacion(origen, destino, qty);
-                    juego.TurnoActual.SiguienteFaseAutomatica();
+                    juego.TurnoActual.SiguienteFaseAutomatica(); // Avanza automaticamente si ya movio
                     txtAnuncios.Text = $"{juego.TurnoActual.Jugador.Nombre} movió {qty} tropas.";
                     break;
 
                 case FaseTurno.Ataque:
                     {
-                        if (origen.Dueno_territorio == destino.Dueno_territorio)
+                        if (origen.Dueno_territorio == destino.Dueno_territorio) //Mensaje de error
                         {
                             MessageBox.Show("No puedes atacar tus propios territorios.");
                             return;
@@ -324,46 +323,49 @@ namespace InterfazGrafica
                             return;
                         }
 
-                        // Determinar cantidad de dados según las tropas y los cuadros de texto
+                        // Determinar cantidad de dados segun las tropas y los cuadros de texto
                         int dadosAtacante = Math.Min(3, Math.Min(atq > 0 ? atq : 3, origen.Tropas_territorio - 1));
                         int dadosDefensor = Math.Min(2, def > 0 ? def : 2);
 
-                        // Simular tiradas
-                        var tiradaAtacante = Enumerable.Range(0, dadosAtacante).Select(_ => rnd.Next(1, 7)).OrderByDescending(v => v).ToList();
-                        var tiradaDefensor = Enumerable.Range(0, dadosDefensor).Select(_ => rnd.Next(1, 7)).OrderByDescending(v => v).ToList();
+                        // Crea listas
+                        var tiradaAtacante = new Lista<int>();
+                        var tiradaDefensor = new Lista<int>();
 
-                        txtAnuncios.Text += $"Atacante tira: {string.Join(", ", tiradaAtacante)}\r\n";
-                        txtAnuncios.Text += $"Defensor tira: {string.Join(", ", tiradaDefensor)}\r\n";
+                        // Llenar las listas con numeros aleatorios
+                        for (int i = 0; i < dadosAtacante; i++)
+                            tiradaAtacante.Add(rnd.Next(1, 7));
 
-                        // Resolver batalla
+                        for (int i = 0; i < dadosDefensor; i++)
+                            tiradaDefensor.Add(rnd.Next(1, 7));
+
+                        // Ordenar descendente usando sort
+                        tiradaAtacante.Sort((a, b) => b.CompareTo(a));
+                        tiradaDefensor.Sort((a, b) => b.CompareTo(a));
+
+                        // Mostrar resultados de las tiradas
+                        txtAnuncios.Text += $"Atacante tira: {string.Join(", ", tiradaAtacante.ToArray())}\r\n";
+                        txtAnuncios.Text += $"Defensor tira: {string.Join(", ", tiradaDefensor.ToArray())}\r\n";
+
+                        // Resolver batalla comparando dados
                         int comparaciones = Math.Min(dadosAtacante, dadosDefensor);
                         for (int i = 0; i < comparaciones; i++)
                         {
-                            if (tiradaAtacante[i] > tiradaDefensor[i])
+                            if (tiradaAtacante[i] > tiradaDefensor[i]) 
                                 destino.Tropas_territorio--;
                             else
                                 origen.Tropas_territorio--;
                         }
 
-                        // Si el defensor quedó sin tropas → conquista
+                        // Si el defensor quedo sin tropas → conquista
                         if (destino.Tropas_territorio <= 0)
                         {
                             destino.AsignarDueno_Terr(origen.Dueno_territorio);
-                            destino.Tropas_territorio = Math.Max(1, qty > 0 ? qty : 1); // mover 1 tropa
+                            destino.Tropas_territorio = Math.Max(1, qty > 0 ? qty : 1); // mover 1 tropa por defecto
                             origen.Tropas_territorio -= destino.Tropas_territorio;
                             txtAnuncios.Text += $"¡{origen.Dueno_territorio.Nombre} conquista el territorio {destino.Id}!\r\n";
                         }
 
                         RefrescarUI();
-
-                        juego.TurnoActual.SiguienteFase();
-                        // Si después de avanzar la fase es Refuerzo, cambiar turno
-                        if (juego.TurnoActual.FaseActual == FaseTurno.Refuerzo)
-                        {
-                            juego.CambiarTurno();
-                            txtAnuncios.Text += $" Turno de {juego.TurnoActual.Jugador.Nombre}.";
-                        }
-
                         break;
                     }
 

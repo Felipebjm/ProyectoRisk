@@ -87,10 +87,10 @@
             // 
             // txtAnuncios
             // 
-            txtAnuncios.Location = new Point(372, 14);
+            txtAnuncios.Location = new Point(284, 14);
             txtAnuncios.Name = "txtAnuncios";
             txtAnuncios.ReadOnly = true;
-            txtAnuncios.Size = new Size(368, 23);
+            txtAnuncios.Size = new Size(456, 23);
             txtAnuncios.TabIndex = 21;
             // 
             // txtDadosD
