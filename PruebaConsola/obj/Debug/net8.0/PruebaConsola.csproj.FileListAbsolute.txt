@@ -17,3 +17,22 @@ C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\Proye
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\bin\Debug\net8.0\LogicLayer.pdb
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.csproj.AssemblyReference.cache
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\PruebaConsola\obj\Debug\net8.0\PruebaCo.B0BA1850.Up2Date
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\bin\Debug\net8.0\PruebaConsola.exe
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\bin\Debug\net8.0\PruebaConsola.deps.json
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\bin\Debug\net8.0\PruebaConsola.runtimeconfig.json
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\bin\Debug\net8.0\PruebaConsola.dll
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\bin\Debug\net8.0\PruebaConsola.pdb
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\bin\Debug\net8.0\LogicLayer.dll
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\bin\Debug\net8.0\LogicLayer.pdb
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.csproj.AssemblyReference.cache
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.AssemblyInfoInputs.cache
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.AssemblyInfo.cs
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.csproj.CoreCompileInputs.cache
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.sourcelink.json
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\PruebaCo.B0BA1850.Up2Date
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.dll
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\refint\PruebaConsola.dll
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.pdb
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\PruebaConsola.genruntimeconfig.cache
+C:\Users\febej\Github\ProyectoRisk\PruebaConsola\obj\Debug\net8.0\ref\PruebaConsola.dll

@@ -10,3 +10,15 @@ C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\Proye
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\LogicLayer\obj\Debug\net8.0\refint\LogicLayer.dll
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\LogicLayer\obj\Debug\net8.0\LogicLayer.pdb
 C:\Users\febej\OneDrive\Documentos\TEC\2S 2025\Datos 1\Proyectos\CrazyRisk\ProyectoCrazyRisk\LogicLayer\obj\Debug\net8.0\ref\LogicLayer.dll
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\bin\Debug\net8.0\LogicLayer.deps.json
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\bin\Debug\net8.0\LogicLayer.dll
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\bin\Debug\net8.0\LogicLayer.pdb
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\obj\Debug\net8.0\LogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\obj\Debug\net8.0\LogicLayer.AssemblyInfoInputs.cache
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\obj\Debug\net8.0\LogicLayer.AssemblyInfo.cs
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\obj\Debug\net8.0\LogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\obj\Debug\net8.0\LogicLayer.sourcelink.json
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\obj\Debug\net8.0\LogicLayer.dll
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\obj\Debug\net8.0\refint\LogicLayer.dll
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\obj\Debug\net8.0\LogicLayer.pdb
+C:\Users\febej\Github\ProyectoRisk\LogicLayer\obj\Debug\net8.0\ref\LogicLayer.dll

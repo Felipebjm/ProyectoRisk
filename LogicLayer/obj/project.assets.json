@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\LogicLayer.csproj",
+      "projectUniqueName": "C:\\Users\\febej\\Github\\ProyectoRisk\\LogicLayer\\LogicLayer.csproj",
       "projectName": "LogicLayer",
-      "projectPath": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\LogicLayer.csproj",
+      "projectPath": "C:\\Users\\febej\\Github\\ProyectoRisk\\LogicLayer\\LogicLayer.csproj",
       "packagesPath": "C:\\Users\\febej\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\obj\\",
+      "outputPath": "C:\\Users\\febej\\Github\\ProyectoRisk\\LogicLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

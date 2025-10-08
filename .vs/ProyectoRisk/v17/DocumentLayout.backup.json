@@ -1,33 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\",
+  "WorkspaceRootPath": "C:\\Users\\febej\\Github\\ProyectoRisk\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{41655D4B-A2E2-441E-A601-78E4A9627EE7}|InterfazGrafica\\InterfazGrafica.csproj|c:\\users\\febej\\onedrive\\documentos\\tec\\2s 2025\\datos 1\\proyectos\\crazyrisk\\proyectocrazyrisk\\interfazgrafica\\pantallajuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41655D4B-A2E2-441E-A601-78E4A9627EE7}|InterfazGrafica\\InterfazGrafica.csproj|solutionrelative:interfazgrafica\\pantallajuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{006B91E4-0991-7CDA-A19B-CC1171692BB6}|InterfazGrafica\\InterfazGrafica.csproj|c:\\users\\febej\\github\\proyectorisk\\interfazgrafica\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{006B91E4-0991-7CDA-A19B-CC1171692BB6}|InterfazGrafica\\InterfazGrafica.csproj|solutionrelative:interfazgrafica\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\onedrive\\documentos\\tec\\2s 2025\\datos 1\\proyectos\\crazyrisk\\proyectocrazyrisk\\logiclayer\\dado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{006B91E4-0991-7CDA-A19B-CC1171692BB6}|InterfazGrafica\\InterfazGrafica.csproj|c:\\users\\febej\\github\\proyectorisk\\interfazgrafica\\pantallajuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{006B91E4-0991-7CDA-A19B-CC1171692BB6}|InterfazGrafica\\InterfazGrafica.csproj|solutionrelative:interfazgrafica\\pantallajuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{006B91E4-0991-7CDA-A19B-CC1171692BB6}|InterfazGrafica\\InterfazGrafica.csproj|C:\\Users\\febej\\Github\\ProyectoRisk\\interfazgrafica\\pantallajuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{006B91E4-0991-7CDA-A19B-CC1171692BB6}|InterfazGrafica\\InterfazGrafica.csproj|solutionrelative:interfazgrafica\\pantallajuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\github\\proyectorisk\\logiclayer\\dado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|solutionrelative:logiclayer\\dado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41655D4B-A2E2-441E-A601-78E4A9627EE7}|InterfazGrafica\\InterfazGrafica.csproj|C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\interfazgrafica\\pantallajuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{41655D4B-A2E2-441E-A601-78E4A9627EE7}|InterfazGrafica\\InterfazGrafica.csproj|solutionrelative:interfazgrafica\\pantallajuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\onedrive\\documentos\\tec\\2s 2025\\datos 1\\proyectos\\crazyrisk\\proyectocrazyrisk\\logiclayer\\gameplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|solutionrelative:logiclayer\\gameplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\onedrive\\documentos\\tec\\2s 2025\\datos 1\\proyectos\\crazyrisk\\proyectocrazyrisk\\logiclayer\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\github\\proyectorisk\\logiclayer\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|solutionrelative:logiclayer\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41655D4B-A2E2-441E-A601-78E4A9627EE7}|InterfazGrafica\\InterfazGrafica.csproj|c:\\users\\febej\\onedrive\\documentos\\tec\\2s 2025\\datos 1\\proyectos\\crazyrisk\\proyectocrazyrisk\\interfazgrafica\\interfazgrafica.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{41655D4B-A2E2-441E-A601-78E4A9627EE7}|InterfazGrafica\\InterfazGrafica.csproj|solutionrelative:interfazgrafica\\interfazgrafica.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\github\\proyectorisk\\logiclayer\\gameplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|solutionrelative:logiclayer\\gameplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\onedrive\\documentos\\tec\\2s 2025\\datos 1\\proyectos\\crazyrisk\\proyectocrazyrisk\\logiclayer\\estructurasdatos\\cola.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|c:\\users\\febej\\github\\proyectorisk\\logiclayer\\estructurasdatos\\cola.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6369E3A2-8F66-4F55-A26B-4D31A9213A95}|LogicLayer\\LogicLayer.csproj|solutionrelative:logiclayer\\estructurasdatos\\cola.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -38,55 +38,65 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Dado.cs",
-              "DocumentMoniker": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\Dado.cs",
-              "RelativeDocumentMoniker": "LogicLayer\\Dado.cs",
-              "ToolTip": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\Dado.cs",
-              "RelativeToolTip": "LogicLayer\\Dado.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAALAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\febej\\Github\\ProyectoRisk\\InterfazGrafica\\Program.cs",
+              "RelativeDocumentMoniker": "InterfazGrafica\\Program.cs",
+              "ToolTip": "C:\\Users\\febej\\Github\\ProyectoRisk\\InterfazGrafica\\Program.cs",
+              "RelativeToolTip": "InterfazGrafica\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T21:05:49.706Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Jugador.cs",
-              "DocumentMoniker": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\Jugador.cs",
-              "RelativeDocumentMoniker": "LogicLayer\\Jugador.cs",
-              "ToolTip": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\Jugador.cs",
-              "RelativeToolTip": "LogicLayer\\Jugador.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAADwv6QAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T03:56:58.721Z",
+              "WhenOpened": "2025-10-08T06:43:06.265Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Gameplay.cs",
-              "DocumentMoniker": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\Gameplay.cs",
-              "RelativeDocumentMoniker": "LogicLayer\\Gameplay.cs",
-              "ToolTip": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\Gameplay.cs",
-              "RelativeToolTip": "LogicLayer\\Gameplay.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAADwv30AAAAfAAAAAAAAAA==",
+              "Title": "Dado.cs",
+              "DocumentMoniker": "C:\\Users\\febej\\Github\\ProyectoRisk\\LogicLayer\\Dado.cs",
+              "RelativeDocumentMoniker": "LogicLayer\\Dado.cs",
+              "ToolTip": "C:\\Users\\febej\\Github\\ProyectoRisk\\LogicLayer\\Dado.cs",
+              "RelativeToolTip": "LogicLayer\\Dado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T04:07:26.93Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-07T21:05:49.706Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "Jugador.cs",
+              "DocumentMoniker": "C:\\Users\\febej\\Github\\ProyectoRisk\\LogicLayer\\Jugador.cs",
+              "RelativeDocumentMoniker": "LogicLayer\\Jugador.cs",
+              "ToolTip": "C:\\Users\\febej\\Github\\ProyectoRisk\\LogicLayer\\Jugador.cs",
+              "RelativeToolTip": "LogicLayer\\Jugador.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAADwv6QAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T03:56:58.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Gameplay.cs",
+              "DocumentMoniker": "C:\\Users\\febej\\Github\\ProyectoRisk\\LogicLayer\\Gameplay.cs",
+              "RelativeDocumentMoniker": "LogicLayer\\Gameplay.cs",
+              "ToolTip": "C:\\Users\\febej\\Github\\ProyectoRisk\\LogicLayer\\Gameplay.cs",
+              "RelativeToolTip": "LogicLayer\\Gameplay.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAADwv30AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T04:07:26.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "PantallaJuego.cs",
-              "DocumentMoniker": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\InterfazGrafica\\PantallaJuego.cs",
+              "DocumentMoniker": "C:\\Users\\febej\\Github\\ProyectoRisk\\InterfazGrafica\\PantallaJuego.cs",
               "RelativeDocumentMoniker": "InterfazGrafica\\PantallaJuego.cs",
-              "ToolTip": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\InterfazGrafica\\PantallaJuego.cs*",
-              "RelativeToolTip": "InterfazGrafica\\PantallaJuego.cs*",
+              "ToolTip": "C:\\Users\\febej\\Github\\ProyectoRisk\\InterfazGrafica\\PantallaJuego.cs",
+              "RelativeToolTip": "InterfazGrafica\\PantallaJuego.cs",
               "ViewState": "AgIAAEsBAAAAAAAAAAAwwGwBAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-02T23:40:33.527Z",
@@ -96,9 +106,9 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Cola.cs",
-              "DocumentMoniker": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\EstructurasDatos\\Cola.cs",
+              "DocumentMoniker": "C:\\Users\\febej\\Github\\ProyectoRisk\\LogicLayer\\EstructurasDatos\\Cola.cs",
               "RelativeDocumentMoniker": "LogicLayer\\EstructurasDatos\\Cola.cs",
-              "ToolTip": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\LogicLayer\\EstructurasDatos\\Cola.cs",
+              "ToolTip": "C:\\Users\\febej\\Github\\ProyectoRisk\\LogicLayer\\EstructurasDatos\\Cola.cs",
               "RelativeToolTip": "LogicLayer\\EstructurasDatos\\Cola.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -108,25 +118,12 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "PantallaJuego.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\InterfazGrafica\\PantallaJuego.cs",
+              "DocumentMoniker": "C:\\Users\\febej\\Github\\ProyectoRisk\\InterfazGrafica\\PantallaJuego.cs",
               "RelativeDocumentMoniker": "InterfazGrafica\\PantallaJuego.cs",
-              "ToolTip": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\InterfazGrafica\\PantallaJuego.cs [Design]*",
-              "RelativeToolTip": "InterfazGrafica\\PantallaJuego.cs [Design]*",
+              "ToolTip": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\InterfazGrafica\\PantallaJuego.cs [Design]",
+              "RelativeToolTip": "..\\..\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\InterfazGrafica\\PantallaJuego.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T04:01:55.013Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "InterfazGrafica.csproj",
-              "DocumentMoniker": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\InterfazGrafica\\InterfazGrafica.csproj",
-              "RelativeDocumentMoniker": "InterfazGrafica\\InterfazGrafica.csproj",
-              "ToolTip": "C:\\Users\\febej\\OneDrive\\Documentos\\TEC\\2S 2025\\Datos 1\\Proyectos\\CrazyRisk\\ProyectoCrazyRisk\\InterfazGrafica\\InterfazGrafica.csproj",
-              "RelativeToolTip": "InterfazGrafica\\InterfazGrafica.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-03T00:34:10.617Z"
+              "WhenOpened": "2025-10-03T04:01:55.013Z"
             }
           ]
         }
